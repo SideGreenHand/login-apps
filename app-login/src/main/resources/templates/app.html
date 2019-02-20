@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="./js/vue.min.js"></script>
+		<script src="./js/axios.min.js"></script>
+		<script src="./js/bluebird.min.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			{{res}}
+		</div>
+	</body>
+	<script>
+		new Vue({
+			el:"#app",
+			data:{
+				res:'aaa'
+			},
+			created:function(){
+				var _this = this;
+				console.log("请求接口");
+				axios.get("http://apptwo.server.com:8084/rest/resource",{
+					withCredentials: true
+				}).then(function (response) {
+				    if (response.data.code){
+                        _this.res = response.data.message;
+                    } else{
+                        _this.res = response.data;
+                    }
+				})
+			}
+		})
+	</script>
+</html>

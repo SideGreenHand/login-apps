@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <form id="loginForm" action="http://cas.server.com:8443/cas/rest/login"  method="post" >
+        用户名：<input type="text" name="username" value="" />
+        密  码：<input type="password" name="password" value=""/>
+        <button id="loginBtn" >登陆</button>
+    </form>
+</body>
+<script>
+    $("#loginBtn").click(function () {
+        $("#loginForm").submit();
+        /*$.ajax({
+            type:"POST",
+
+        })*/
+    })
+</script>
+</html>
